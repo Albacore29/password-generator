@@ -1,4 +1,20 @@
-// Assignment code here
+const characterAmountRange = document.getElementById
+('characterAmountRange')
+const characterAmountNumber = document.getElementById
+('characterAmountNumber')
+
+// Add event listener 
+characterAmountNumber.addEventListener('input', syncCharacterAmount)
+characterAmountRange.addEventListener('input', syncCharacterAmount)
+
+function syncCharacterAmount(e) {
+  const value = e.target.value
+  characterAmountNumber.value = value
+  characterAmountRange.value = value
+}
+
+
+
 function generatePassword(){
   //1. seperate all characters
   //2. ask the user which characters they want and create a group of those characters only
