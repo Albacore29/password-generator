@@ -53,7 +53,7 @@ label {
   padding: 1rem;
   border: 1px solid black;
   height: 2rem;
-  width; 300px;
+  width: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@ label {
 }
 
 .btn {
-  grid-column: span;
+  grid-column: span 2;
   background-color: red;
   border: 2px solid black;
   color: white;
@@ -70,10 +70,6 @@ label {
   font-weight: bold;
   cursor: pointer;
   border-radius: 1rem;
-}
-
-.btn:hover {
-  background-color: #ff000033
 }
 
 
