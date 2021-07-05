@@ -7,6 +7,7 @@ const includeUppercaseElement = document.getElementById
 const includeNumbersElement = document.getElementById('includeNumbers')
 const includeSymbolsElement = document.getElementById('includeSymbols')
 const form = document.getElementById('passwordGeneratorForm')
+const passwordDisplay = document.getElementById('passwordDisplay')
 
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
 const UPPERCASE_CHAR_CODES = arrayFromLowtoHigh(65, 90)
@@ -31,14 +32,27 @@ form.addEventListener('submit', e => {
   const includeSymbols = includeSymbolsElement.checked
   const password = generatePassword(characterAmount, includeUppercase,
   includeNumbers, includeSymbols)
+  passwordDisplay.innerText = password
 })
 
 function generatePassword(characterAmount, includeUppercase,
   includeNumbers, includeSymbols) {
-    console.log(LOWERCASE_CHAR_CODES)
+    let charCodes = LOWERCASE_CHAR_CODES
+    if (includeUppercase) charCodes = charCodes.concat
+    (UPPERCASE_CHAR_CODES)
+    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
+    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+
+    const passwordCharacters = []
+    for (let i = 0; i < characterAmount; i++) {
+      const characterCode = charCodes[Math.floor(Math.random() *
+      charCodes.length)]
+      passwordCharacters.push(String.fromCharCode(characterCode))
+    }
+    return passwordCharacters.join('')
   }
 
-  function arrayFromLow(low, high) {
+  function arrayFromLowToHigh(low, high) {
     const array = []
     for (let i = low; i <= high; i++) {
       array.push(i)
@@ -58,18 +72,13 @@ function syncCharacterAmount(e) {
 
 
 
-  //1. seperate all characters
-  //2. ask the user which characters they want and create a group of those characters only
- //3. select random characters from the creative group of characters
- //4. return the password
  
   
 
-// Get references to the #generate element
 
 
-// Write password to the #password input
 
 
-// Add event listener to generate button
+
+
 
