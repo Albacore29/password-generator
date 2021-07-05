@@ -9,6 +9,7 @@ const includeSymbolsElement = document.getElementById('includeSymbols')
 const form = document.getElementById('passwordGeneratorForm')
 const passwordDisplay = document.getElementById('passwordDisplay')
 
+// Generating Character Codes
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
 const UPPERCASE_CHAR_CODES = arrayFromLowtoHigh(65, 90)
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
@@ -20,10 +21,11 @@ const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
   arrayFromLowToHigh(123, 126)
 )
 
-// Add event listener 
+
 characterAmountNumber.addEventListener('input', syncCharacterAmount)
 characterAmountRange.addEventListener('input', syncCharacterAmount)
 
+// Checking the options that are selected and setting the password
 form.addEventListener('submit', e => {
   e.preventDefault()
   const characterAmount = characterAmountNumber.value
@@ -35,6 +37,7 @@ form.addEventListener('submit', e => {
   passwordDisplay.innerText = password
 })
 
+// Password Generating Function
 function generatePassword(characterAmount, includeUppercase,
   includeNumbers, includeSymbols) {
     let charCodes = LOWERCASE_CHAR_CODES
@@ -52,6 +55,7 @@ function generatePassword(characterAmount, includeUppercase,
     return passwordCharacters.join('')
   }
 
+  // Character Code Generating Function
   function arrayFromLowToHigh(low, high) {
     const array = []
     for (let i = low; i <= high; i++) {
