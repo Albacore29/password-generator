@@ -12,7 +12,7 @@ var passwordDisplay = document.getElementById('passwordDisplay')
 
 // Generating Character Codes
 var LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
-var UPPERCASE_CHAR_CODES = arrayFromLowtoHigh(65, 90)
+var UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
 var NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
 var SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
   arrayFromLowToHigh(58, 64)
